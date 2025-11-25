@@ -5,7 +5,7 @@ import {
   SubscribeButton,
   TextArea,
   TextField,
-} from '../../../components/demo.FormComponents'
+} from '@/integrations/tanstack-form/components/FormComponents'
 import { fieldContext, formContext } from './form-context'
 
 export const { useAppForm } = createFormHook({

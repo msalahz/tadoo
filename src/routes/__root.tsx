@@ -11,6 +11,7 @@ import TanStackQueryDevtools from '../integrations/tanstack-query/devtools'
 import appCss from '../styles.css?url'
 
 import type { QueryClient } from '@tanstack/react-query'
+import { Header } from '@/features/shared/components/layout/Header'
 
 interface MyRouterContext {
   queryClient: QueryClient
@@ -27,7 +28,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'TanStack Start Starter',
+        title: 'Tadoo  - A Task Management App',
       },
     ],
     links: [
@@ -46,8 +47,22 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-touch-fullscreen" content="yes" />
+        <meta name="apple-mobile-web-app-title" content="TADOO" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <script src="https://unpkg.com/ios-pwa-splash@1.0.0/cdn.min.js"></script>
+        <script>iosPWASplash('/apple-touch-icon.png', '#EADBD4');</script>
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#EADBD4" />
       </head>
       <body suppressHydrationWarning>
+        <Header/>
         {children}
         <TanStackDevtools
           config={{
