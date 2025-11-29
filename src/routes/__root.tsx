@@ -11,6 +11,7 @@ import TanStackQueryDevtools from '../integrations/tanstack-query/devtools'
 import appCss from '../styles.css?url'
 
 import type { QueryClient } from '@tanstack/react-query'
+
 import { Header } from '@/features/shared/components/layout/Header'
 
 interface MyRouterContext {
@@ -40,6 +41,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
   }),
 
   shellComponent: RootDocument,
+  notFoundComponent: () => <div>Not Found</div>,
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {
@@ -61,16 +63,14 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#EADBD4" />
       </head>
-      <body suppressHydrationWarning>
-        <Header/>
-        {children}
+      <body suppressHydrationWarning className="dark p-4 min-h-screen">
+        <Header />
+        <main className="p-4">{children}</main>
         <TanStackDevtools
-          config={{
-            position: 'bottom-right',
-          }}
+          config={{ position: 'bottom-right' }}
           plugins={[
             {
-              name: 'Tanstack Router',
+              name: 'Tadoo',
               render: <TanStackRouterDevtoolsPanel />,
             },
             TanStackQueryDevtools,
