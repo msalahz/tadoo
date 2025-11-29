@@ -63,7 +63,7 @@ pnpx shadcn@latest add <component-name>
 - SSR-enabled with route loaders supported
 
 ### Data Layer
-- Database schema defined in `src/db/schema.ts` using Drizzle ORM
+- Database schema defined in `src/db/tasks.ts` using Drizzle ORM
 - Database connection configured in `src/db/index.ts`
 - Uses PostgreSQL with connection string from `DATABASE_URL` environment variable
 - Migrations managed through Drizzle Kit (see `drizzle.config.ts`)
@@ -75,10 +75,10 @@ pnpx shadcn@latest add <component-name>
 - TanStack Store available for local state if needed
 
 ### Environment Variables
-- Type-safe environment variables using T3 Env (see `src/env.ts`)
+- Type-safe environment variables using T3 Env (see `src/server.ts`)
 - Client variables must be prefixed with `VITE_`
 - Server variables have no prefix requirement
-- Environment config in `.env.local`
+- Environment config in `.server.local`
 
 ### Path Aliases
 - `@/*` maps to `src/*` (configured in `tsconfig.json`)
@@ -129,8 +129,8 @@ import { todos } from '@/db/schema'
 ### Environment Variables
 Import and use typed environment variables:
 ```tsx
-import { env } from '@/env'
-// Access: env.VITE_APP_TITLE or env.SERVER_URL
+import { server } from '@/server'
+// Access: server.VITE_APP_TITLE or server.SERVER_URL
 ```
 
 ## Demo Files
